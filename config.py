@@ -1,0 +1,5 @@
+API_TOKEN_OPENAI = "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"
+API_TOKEN_TELEGRAM = "6214042230:AAEa05_4b2BZ06ji-Pe82ekeeIteLduClWA"
+
+main_channel = "-1001714222366"
+admin_channel = "-1001848609338"
