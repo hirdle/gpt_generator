@@ -1,4 +1,4 @@
-import requests
+import requests, json
 import config
 
 import telebot
@@ -120,9 +120,18 @@ def deleteFirstTheme():
 
 
 def create_wp_post(text):
-    body = {"text":text,"key":"m.^7Gf=n6{>q>b$x"}
-    requests.post('https://vm1254991.ssd.had.yt/public/f_project/resource/gpt-to-wp/send.php', data=body)
+    url = "https://vm1254991.ssd.had.yt/public/f_project/resource/gpt-to-wp/send.php"
 
+    payload = json.dumps({
+    "title": "11",
+    "content": "test",
+    "key": "m.^7Gf=n6{>q>b$x"
+    })
+    headers = {
+    'Content-Type': 'application/json',
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
 
 def create_posts():
     while True:

@@ -1,5 +1,12 @@
-API_TOKEN_OPENAI = "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"
-API_TOKEN_TELEGRAM = "6214042230:AAEa05_4b2BZ06ji-Pe82ekeeIteLduClWA"
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+API_TOKEN_OPENAI = os.getenv('API_TOKEN_OPENAI')
+API_TOKEN_TELEGRAM = os.getenv('API_TOKEN_TELEGRAM')
+
+
 
 main_channel = "-1001714222366"
 admin_channel = "-1001848609338"
