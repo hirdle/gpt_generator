@@ -119,6 +119,11 @@ def deleteFirstTheme():
     edit_themes(posts)
 
 
+def create_wp_post(text):
+    body = {"text":text,"key":"m.^7Gf=n6{>q>b$x"}
+    requests.post('https://vm1254991.ssd.had.yt/public/f_project/resource/gpt-to-wp/send.php', data=body)
+
+
 def create_posts():
     while True:
         posts = get_themes()
@@ -128,6 +133,7 @@ def create_posts():
                 bot.send_message(config.admin_channel, "Не удалось сгенерировать пост на тему: "+posts[0])
             else:
                 bot.send_message(config.main_channel, p)
+                create_wp_post(p)
 
             deleteFirstTheme()
         else:
