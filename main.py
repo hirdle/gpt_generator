@@ -119,16 +119,16 @@ def deleteFirstTheme():
     edit_themes(posts)
 
 
-def create_wp_post(text):
+def create_wp_post(title, text):
     url = "https://vm1254991.ssd.had.yt/public/f_project/resource/gpt-to-wp/send.php"
 
     payload = json.dumps({
-    "title": "11",
-    "content": "test",
-    "key": "m.^7Gf=n6{>q>b$x"
+        "title": title,
+        "content": text,
+        "key": "m.^7Gf=n6{>q>b$x"
     })
     headers = {
-    'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -142,7 +142,7 @@ def create_posts():
                 bot.send_message(config.admin_channel, "Не удалось сгенерировать пост на тему: "+posts[0])
             else:
                 bot.send_message(config.main_channel, p)
-                create_wp_post(p)
+                create_wp_post(posts[0], p)
 
             deleteFirstTheme()
         else:
